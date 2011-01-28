@@ -1,4 +1,6 @@
 var ws = new WebSocket("ws://localhost:8080");
+var KC = {tab:9, enter:13, left:37, up:38, right:39, down:40};
+
 ws.onmessage = function(e){
     trace(e.data);
 };
@@ -10,13 +12,20 @@ ws.onopen = function(){
 };
 
 $(function(){
-    $('input#post').click(function(){
-        var name = $('input#name').val();
-        var mes = $('input#message').val();
-        ws.send(name+" : "+mes);
-        $('input#message').val("");
+    $('input#post').click(post);
+    $('input#message').keydown(function(e){
+        if(e.keyCode == KC.enter){
+            post();
+        }
     });
 });
+
+function post(){
+    var name = $('input#name').val();
+    var mes = $('input#message').val();
+    ws.send(name+" : "+mes);
+    $('input#message').val("");    
+};
 
 function log(message){
     trace("[log] "+message);
