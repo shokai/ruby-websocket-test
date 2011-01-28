@@ -16,7 +16,7 @@ EM::run do
       @channel.push("hello <#{sid}>")
 
       ws.onmessage{|mes|
-        puts "<#{sid}> mes"
+        puts "<#{sid}> #{mes}"
         @channel.push("<#{sid}> #{mes}")
       }
 
