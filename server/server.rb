@@ -32,7 +32,7 @@ EM::run do
     loop do
       puts Time.now.to_s
       @channel.push Time.now.to_s
-      sleep 10
+      sleep 60
     end
   end
 end
