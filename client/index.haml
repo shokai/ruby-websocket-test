@@ -10,3 +10,11 @@
       %input{:id => 'message', :type => 'text', :size => 80, :value => 'オハヨーオハヨー'}
       %input{:id => 'post', :type => 'button', :value => 'post'}
     %div#chat
+    %div#footer
+      %hr
+      %p
+        過去ログは流れてきません
+        %br
+        だれもいない時は、ブラウザ2つ開いてみてね
+      - @url = 'https://github.com/shokai/ruby-websocket-test'
+      %a{:href => @url} #{@url}
