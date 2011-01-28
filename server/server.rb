@@ -30,7 +30,6 @@ EM::run do
 
   EM::defer do
     loop do
-      puts Time.now.to_s
       @channel.push Time.now.to_s
       sleep 60
     end
