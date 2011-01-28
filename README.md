@@ -1,6 +1,12 @@
 websocket test
 ==============
 
+clone
+-----
+
+    % git clone git://github.com/shokai/ruby-websocket-test.git
+
+
 simple chat app
 ---------------
 
