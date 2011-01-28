@@ -3,20 +3,24 @@ ws.onmessage = function(e){
     trace(e.data);
 };
 ws.onclose = function(){
-    console.log("ws closed");
+    log("ws closed");
 };
 ws.onopen = function(){
-    trace('connected!!');
-    ws.send('hello server');
+    log('connected!!');
 };
-
 
 $(function(){
     $('input#post').click(function(){
-        trace('post');
-        ws.send($('input#message').val());
+        var name = $('input#name').val();
+        var mes = $('input#message').val();
+        ws.send(name+" : "+mes);
+        $('input#message').val("");
     });
 });
+
+function log(message){
+    trace("[log] "+message);
+};
 
 function trace(message){
     var mes_div = $('<div />').html(message);
