@@ -1,11 +1,18 @@
 require 'rubygems'
 require 'em-websocket'
- 
-puts 'server start'
+
+MAX_LOG = 100
+
 
 EM::run do
 
+  puts 'server start'
   @channel = EM::Channel.new
+  @logs = Array.new
+  @channel.subscribe{|mes|
+    @logs.push mes
+    @logs.shift if @logs.size > MAX_LOG
+  }
 
   EM::WebSocket.start(:host => "0.0.0.0", :port => 8080) do |ws|
     ws.onopen{
@@ -13,6 +20,9 @@ EM::run do
         ws.send(mes)
       }
       puts "<#{sid}> connected!!"
+      @logs.each{|mes|
+        ws.send(mes)
+      }
       @channel.push("hello <#{sid}>")
 
       ws.onmessage{|mes|
@@ -31,7 +41,7 @@ EM::run do
   EM::defer do
     loop do
       @channel.push Time.now.to_s
-      sleep 60
+      sleep 60*60*3
     end
   end
 end
