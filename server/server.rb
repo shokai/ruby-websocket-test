@@ -2,11 +2,11 @@ require 'rubygems'
 require 'em-websocket'
 
 MAX_LOG = 100
-
+PORT = 8080
 
 EM::run do
 
-  puts 'server start'
+  puts "start websocket server - port:#{PORT}"
   @channel = EM::Channel.new
   @logs = Array.new
   @channel.subscribe{|mes|
@@ -14,7 +14,7 @@ EM::run do
     @logs.shift if @logs.size > MAX_LOG
   }
 
-  EM::WebSocket.start(:host => "0.0.0.0", :port => 8080) do |ws|
+  EM::WebSocket.start(:host => "0.0.0.0", :port => PORT) do |ws|
     ws.onopen{
       sid = @channel.subscribe{|mes|
         ws.send(mes)
