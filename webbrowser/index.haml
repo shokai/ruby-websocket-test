@@ -1,15 +1,16 @@
-!!!XML
+!!! XHTML
 %html
   %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html', :charset => 'UTF-8'}
     %title websocket test
-    %script{:type => 'text/javascript', :src => "./jquery.js"}
-    %script{:type => 'text/javascript', :src => "./ws-test.js"}
+    %script{:type => 'text/javascript', :src => './jquery.js'}
+    %script{:type => 'text/javascript', :src => './ws-test.js'}
   %body
     %form#message
       %input{:id => 'name', :type => 'text', :size => 15, :value => 'おなまえ'}
       %input{:id => 'message', :type => 'text', :size => 80, :value => 'オハヨーオハヨー'}
       %input{:id => 'post', :type => 'button', :value => 'post'}
-    %div#chat
+    %ul#chat
     %div#footer
       %hr
       - @url = 'https://github.com/shokai/ruby-websocket-test'

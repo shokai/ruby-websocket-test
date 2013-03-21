@@ -3,7 +3,7 @@ require 'bundler'
 require 'em-websocket'
 
 MAX_LOG = 100
-PORT = 8080
+PORT = (ARGV.shift || 8080).to_i
 
 EM::run do
 
@@ -46,4 +46,5 @@ EM::run do
       sleep 60*60*3
     end
   end
+
 end
