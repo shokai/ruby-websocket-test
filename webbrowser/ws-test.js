@@ -25,6 +25,7 @@ function post(){
 };
 
 function log(message){
+  console.log(message);
   trace("[log] "+message);
 };
 
