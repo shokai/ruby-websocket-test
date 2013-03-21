@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'bundler'
 require 'em-websocket'
 
 MAX_LOG = 100
