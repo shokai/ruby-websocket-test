@@ -1,15 +1,23 @@
 websocket test
 ==============
+https://github.com/shokai/ruby-websocket-test
 
-clone
------
 
-    % git clone git://github.com/shokai/ruby-websocket-test.git
+Install Dependencies
+--------------------
+
+    % gem install bundler
+    % bundle install
 
 
 simple chat app
 ---------------
 
-    % gem install em-websocket
+start server
+
     % ruby server/server.rb
+
+
+webbrowser
+
     % open client/index.html
