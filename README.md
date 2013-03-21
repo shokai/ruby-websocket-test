@@ -20,4 +20,4 @@ start server
 
 webbrowser
 
-    % open client/index.html
+    % open webbrowser/index.html
