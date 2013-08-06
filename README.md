@@ -15,9 +15,13 @@ simple chat app
 
 start server
 
-    % ruby server/server.rb
+    % bundle exec ruby server/server.rb
 
 
 webbrowser
 
     % open webbrowser/index.html
+
+ruby client
+
+    % bundle exec ruby client/client.rb
