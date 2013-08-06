@@ -1,13 +1,15 @@
-var ws = new WebSocket("ws://localhost:8080");
+var ws = new WebSocket("ws://localhost:9000");
 
 ws.onmessage = function(e){
   trace(e.data);
 };
-ws.onclose = function(){
+ws.onclose = function(e){
   log("ws closed");
+  console.log(e);
 };
-ws.onopen = function(){
+ws.onopen = function(e){
   log("connected!!");
+  console.log(e);
 };
 
 $(function(){

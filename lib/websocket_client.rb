@@ -8,7 +8,7 @@ class WebSocketClient
 
   def initialize(url)
     uri = URI.parse url
-    @socket = TCPSocket.new(uri.host, uri.port || 80)
+    @socket = TCPSocket.new(uri.host, uri.port || 9000)
     @hs = ::WebSocket::Handshake::Client.new :url => url
     handshaked = false
     frame = ::WebSocket::Frame::Incoming::Client.new
